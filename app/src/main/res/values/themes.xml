@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.ConjuntoYa" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/conjunto_primary</item>
-        <item name="android:windowBackground">@color/conjunto_background</item>
+    <style name="Theme.Vivita" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/vivita_verde_botella</item>
+        <item name="android:windowBackground">@color/vivita_beige_claro</item>
     </style>
 </resources>

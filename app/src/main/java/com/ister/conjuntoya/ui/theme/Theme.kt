@@ -1,49 +1,56 @@
 package com.ister.conjuntoya.ui.theme
 
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
 
-private val LightColors = lightColorScheme(
-    primary = ConjuntoPrimary,
-    secondary = ConjuntoSecondary,
-    error = ConjuntoError,
-    background = ConjuntoSurfaceLight,
-    surface = ConjuntoSurfaceLight
+private val VivitaLightColors = lightColorScheme(
+    primary = VivitaVerdeBotella,
+    onPrimary = VivitaBeigeClaro,
+    secondary = VivitaCafeOscuro,
+    onSecondary = VivitaBeigeClaro,
+    tertiary = VivitaCafeOscuro,
+    onTertiary = VivitaBeigeClaro,
+    error = VivitaError,
+    onError = Color.White,
+    background = VivitaBeigeClaro,
+    onBackground = VivitaTextoNegro,
+    surface = VivitaBeigeSuave,
+    onSurface = VivitaTextoNegro,
+    surfaceVariant = VivitaBeigeSuave,
+    onSurfaceVariant = VivitaTextoNegro
 )
 
-private val DarkColors = darkColorScheme(
-    primary = ConjuntoPrimaryDark,
-    secondary = ConjuntoSecondary,
-    error = ConjuntoError,
-    background = ConjuntoSurfaceDark,
-    surface = ConjuntoSurfaceDark
+private val VivitaDarkColors = darkColorScheme(
+    primary = Color(0xFF3E7A5E),
+    onPrimary = VivitaBeigeClaro,
+    secondary = VivitaCafeOscuro,
+    onSecondary = VivitaBeigeClaro,
+    tertiary = VivitaCafeOscuro,
+    onTertiary = VivitaBeigeClaro,
+    error = VivitaError,
+    onError = Color.White,
+    background = VivitaCafeMasOscuro,
+    onBackground = VivitaBeigeClaro,
+    surface = VivitaCafeOscuro,
+    onSurface = VivitaBeigeClaro,
+    surfaceVariant = VivitaCafeOscuro,
+    onSurfaceVariant = VivitaBeigeClaro
 )
 
 @Composable
-fun ConjuntoYaTheme(
+fun VivitaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-        darkTheme -> DarkColors
-        else -> LightColors
-    }
+    val colorScheme = if (darkTheme) VivitaDarkColors else VivitaLightColors
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = ConjuntoTypography,
+        typography = VivitaTypography,
         content = content
     )
 }

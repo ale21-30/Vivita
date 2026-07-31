@@ -2,7 +2,7 @@ package com.ister.conjuntoya
 
 import android.app.Application
 
-class ConjuntoYaApp : Application() {
+class VivitaApp : Application() {
     lateinit var container: AppContainer
         private set
 

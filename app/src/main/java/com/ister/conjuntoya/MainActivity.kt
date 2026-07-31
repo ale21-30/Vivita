@@ -11,14 +11,14 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.ister.conjuntoya.navigation.MainScreen
 import com.ister.conjuntoya.ui.ajustes.AjustesViewModel
-import com.ister.conjuntoya.ui.theme.ConjuntoYaTheme
+import com.ister.conjuntoya.ui.theme.VivitaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val container = (application as ConjuntoYaApp).container
+        val container = (application as VivitaApp).container
 
         setContent {
             val ajustesViewModel: AjustesViewModel = viewModel(
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
             )
             val modoOscuro by ajustesViewModel.modoOscuro.collectAsStateWithLifecycle()
 
-            ConjuntoYaTheme(darkTheme = modoOscuro) {
+            VivitaTheme(darkTheme = modoOscuro) {
                 MainScreen(ajustesViewModel = ajustesViewModel)
             }
         }

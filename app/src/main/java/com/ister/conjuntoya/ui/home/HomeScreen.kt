@@ -45,7 +45,7 @@ fun HomeScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("ConjuntoYa") }) }
+        topBar = { TopAppBar(title = { Text("Vivita") }) }
     ) { padding ->
         if (uiState.cargando) {
             Column(
