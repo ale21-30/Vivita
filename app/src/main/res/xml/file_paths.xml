@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="invitados_fotos" path="fotos_invitados/" />
+    <cache-path name="cache_temp" path="temp/" />
+</paths>
