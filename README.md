@@ -25,7 +25,7 @@ Proyecto final de la asignatura de Aplicaciones Móviles (ISTER).
 - **Basura**: calendario de recolección, día configurable y persistido.
 - **Invitados**: registro de invitados con nombre, cédula y foto (cámara). Cada invitado recibe un código QR único para su ingreso, y puede eliminarse de la lista.
 - **Portería**: escaneo del código QR del invitado para validar su ingreso.
-- **Ajustes**: datos de la vivienda (casa/habitante), modo oscuro, notificaciones y día de recolección de basura.
+- **Ajustes**: datos de la vivienda (casa/habitante), foto del conjunto cargada desde internet (Coil), modo oscuro, notificaciones y día de recolección de basura.
 
 ## Arquitectura
 
@@ -51,6 +51,7 @@ Ver diagrama completo en [`docs/arquitectura.png`](docs/arquitectura.png).
 - **DataStore Preferences**: modo oscuro, notificaciones, día de basura, casa/habitante
 - **Retrofit**: consumo de [open.er-api.com](https://open.er-api.com) (tasa de cambio USD → EUR), con manejo de estados de carga/éxito/error
 - **CameraX / cámara del sistema + ZXing**: foto del invitado y generación/escaneo de código QR
+- **Coil**: carga de imágenes desde internet (foto del conjunto en Ajustes) y desde archivos locales (fotos de invitados)
 - AGP 9.2.1 · Gradle 9.4.1 · compileSdk 36 · minSdk 26
 
 ## Hardware y permisos
