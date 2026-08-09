@@ -10,7 +10,13 @@ class AlicuotasRepository(private val dao: AlicuotaDao) {
 
     fun obtenerPendientes(): Flow<List<AlicuotaEntity>> = dao.obtenerPendientes()
 
-    suspend fun marcarComoPagada(id: Long, fecha: String) = dao.marcarComoPagada(id, fecha)
+    suspend fun registrarPago(
+        id: Long,
+        fecha: String,
+        bancoEmisor: String,
+        montoTransferido: Double,
+        comprobanteUri: String
+    ) = dao.registrarPago(id, fecha, bancoEmisor, montoTransferido, comprobanteUri)
 
     suspend fun registrarAlicuota(alicuota: AlicuotaEntity) = dao.insertar(alicuota)
 }

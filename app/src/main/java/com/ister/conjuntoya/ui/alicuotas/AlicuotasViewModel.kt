@@ -38,10 +38,17 @@ class AlicuotasViewModel(
         }
     }
 
-    fun pagar(id: Long) {
+    fun registrarPago(
+        id: Long,
+        bancoEmisor: String,
+        montoTransferido: Double,
+        comprobanteUri: String,
+        onListo: () -> Unit
+    ) {
         viewModelScope.launch {
             val fecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-            alicuotasRepository.marcarComoPagada(id, fecha)
+            alicuotasRepository.registrarPago(id, fecha, bancoEmisor, montoTransferido, comprobanteUri)
+            onListo()
         }
     }
 }

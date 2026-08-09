@@ -67,6 +67,12 @@ private fun AlicuotaItem(alicuota: AlicuotaEntity, onClick: () -> Unit) {
                 style = MaterialTheme.typography.titleMedium
             )
             Text(text = "Monto: \$${alicuota.monto}", style = MaterialTheme.typography.bodyMedium)
+            if (alicuota.pagado && alicuota.bancoEmisor != null) {
+                Text(
+                    text = "Pagado vía ${alicuota.bancoEmisor}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
             EstadoBadge(pagado = alicuota.pagado)
         }
     }

@@ -22,8 +22,21 @@ interface AlicuotaDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertarTodas(alicuotas: List<AlicuotaEntity>)
 
-    @Query("UPDATE alicuotas SET pagado = 1, fechaPago = :fecha WHERE id = :id")
-    suspend fun marcarComoPagada(id: Long, fecha: String)
+    @Query(
+        """
+        UPDATE alicuotas
+        SET pagado = 1, fechaPago = :fecha, bancoEmisor = :bancoEmisor,
+            montoTransferido = :montoTransferido, comprobanteUri = :comprobanteUri
+        WHERE id = :id
+        """
+    )
+    suspend fun registrarPago(
+        id: Long,
+        fecha: String,
+        bancoEmisor: String,
+        montoTransferido: Double,
+        comprobanteUri: String
+    )
 
     @Query("SELECT COUNT(*) FROM alicuotas")
     suspend fun contar(): Int

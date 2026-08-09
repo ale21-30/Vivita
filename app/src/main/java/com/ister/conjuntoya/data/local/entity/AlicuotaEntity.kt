@@ -10,5 +10,8 @@ data class AlicuotaEntity(
     val anio: Int,
     val monto: Double,
     val pagado: Boolean = false,
-    val fechaPago: String? = null
+    val fechaPago: String? = null,
+    val bancoEmisor: String? = null,
+    val montoTransferido: Double? = null,
+    val comprobanteUri: String? = null
 )
