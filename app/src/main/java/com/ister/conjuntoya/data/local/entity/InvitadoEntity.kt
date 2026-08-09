@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class InvitadoEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val nombre: String,
+    val cedula: String,
     val fechaVisita: String,
     val horaVisita: String,
     val fotoUri: String? = null,

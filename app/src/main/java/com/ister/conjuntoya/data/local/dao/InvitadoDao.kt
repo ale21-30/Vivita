@@ -24,4 +24,7 @@ interface InvitadoDao {
 
     @Query("UPDATE invitados SET ingresado = 1, fechaIngreso = :fecha WHERE id = :id")
     suspend fun marcarIngreso(id: Long, fecha: String)
+
+    @Query("DELETE FROM invitados WHERE id = :id")
+    suspend fun eliminar(id: Long)
 }

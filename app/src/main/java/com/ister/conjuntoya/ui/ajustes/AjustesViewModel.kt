@@ -21,11 +21,25 @@ class AjustesViewModel(
     val diaRecoleccion: StateFlow<String> = preferencesRepository.diaRecoleccion
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "Lunes")
 
+    val numeroCasa: StateFlow<String> = preferencesRepository.numeroCasa
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "101")
+
+    val nombreHabitante: StateFlow<String> = preferencesRepository.nombreHabitante
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "Alexandra Caicedo")
+
     fun setModoOscuro(activo: Boolean) {
         viewModelScope.launch { preferencesRepository.setModoOscuro(activo) }
     }
 
     fun setNotificaciones(activo: Boolean) {
         viewModelScope.launch { preferencesRepository.setNotificacionesActivas(activo) }
+    }
+
+    fun setNumeroCasa(numero: String) {
+        viewModelScope.launch { preferencesRepository.setNumeroCasa(numero) }
+    }
+
+    fun setNombreHabitante(nombre: String) {
+        viewModelScope.launch { preferencesRepository.setNombreHabitante(nombre) }
     }
 }

@@ -13,6 +13,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -59,6 +63,7 @@ fun RegistrarInvitadoScreen(onRegistrado: (Long) -> Unit, onVolver: () -> Unit) 
     )
 
     var nombre by rememberSaveable { mutableStateOf("") }
+    var cedula by rememberSaveable { mutableStateOf("") }
     var fecha by rememberSaveable {
         mutableStateOf(SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()))
     }
@@ -109,12 +114,25 @@ fun RegistrarInvitadoScreen(onRegistrado: (Long) -> Unit, onVolver: () -> Unit) 
             )
         }
     ) { padding ->
-        Column(modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(padding)
+                .padding(16.dp)
+        ) {
             OutlinedTextField(
                 value = nombre,
                 onValueChange = { nombre = it },
                 label = { Text("Nombre del invitado") },
                 modifier = Modifier.fillMaxWidth()
+            )
+            OutlinedTextField(
+                value = cedula,
+                onValueChange = { cedula = it },
+                label = { Text("Cédula") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp)
             )
             OutlinedTextField(
                 value = fecha,
@@ -164,10 +182,10 @@ fun RegistrarInvitadoScreen(onRegistrado: (Long) -> Unit, onVolver: () -> Unit) 
             }
 
             Button(
-                enabled = nombre.isNotBlank(),
-                modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                enabled = nombre.isNotBlank() && cedula.isNotBlank(),
+                modifier = Modifier.fillMaxWidth().padding(top = 24.dp, bottom = 24.dp),
                 onClick = {
-                    viewModel.registrar(nombre, fecha, hora, fotoUri?.toString()) { id ->
+                    viewModel.registrar(nombre, cedula, fecha, hora, fotoUri?.toString()) { id ->
                         onRegistrado(id)
                     }
                 }

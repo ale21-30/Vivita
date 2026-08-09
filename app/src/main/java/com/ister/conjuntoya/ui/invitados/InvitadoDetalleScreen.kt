@@ -74,6 +74,7 @@ fun InvitadoDetalleScreen(invitadoId: Long, onVolver: () -> Unit) {
             }
 
             Text(invitado.nombre, style = MaterialTheme.typography.titleLarge)
+            Text("Cédula: ${invitado.cedula}", style = MaterialTheme.typography.bodyMedium)
             Text("${invitado.fechaVisita} - ${invitado.horaVisita}", style = MaterialTheme.typography.bodyMedium)
             Text(
                 text = if (invitado.ingresado) "Ingresó: ${invitado.fechaIngreso}" else "Aún no ingresa",

@@ -18,14 +18,19 @@ class InvitadosViewModel(
 
     fun registrar(
         nombre: String,
+        cedula: String,
         fechaVisita: String,
         horaVisita: String,
         fotoUri: String?,
         onRegistrado: (Long) -> Unit
     ) {
         viewModelScope.launch {
-            val id = invitadosRepository.registrarInvitado(nombre, fechaVisita, horaVisita, fotoUri)
+            val id = invitadosRepository.registrarInvitado(nombre, cedula, fechaVisita, horaVisita, fotoUri)
             onRegistrado(id)
         }
+    }
+
+    fun eliminar(id: Long) {
+        viewModelScope.launch { invitadosRepository.eliminarInvitado(id) }
     }
 }

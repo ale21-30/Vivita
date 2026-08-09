@@ -14,7 +14,7 @@ import java.util.Calendar
 
 @Database(
     entities = [AlicuotaEntity::class, InvitadoEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -32,7 +32,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "conjuntoya.db"
-                ).addCallback(object : Callback() {
+                ).fallbackToDestructiveMigration(dropAllTables = true)
+                    .addCallback(object : Callback() {
                     override fun onCreate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
                         super.onCreate(db)
                         scope.launch {

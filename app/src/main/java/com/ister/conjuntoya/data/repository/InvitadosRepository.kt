@@ -13,12 +13,14 @@ class InvitadosRepository(private val dao: InvitadoDao) {
 
     suspend fun registrarInvitado(
         nombre: String,
+        cedula: String,
         fechaVisita: String,
         horaVisita: String,
         fotoUri: String?
     ): Long {
         val invitado = InvitadoEntity(
             nombre = nombre,
+            cedula = cedula,
             fechaVisita = fechaVisita,
             horaVisita = horaVisita,
             fotoUri = fotoUri,
@@ -33,5 +35,9 @@ class InvitadosRepository(private val dao: InvitadoDao) {
             dao.marcarIngreso(invitado.id, fecha)
         }
         return invitado
+    }
+
+    suspend fun eliminarInvitado(id: Long) {
+        dao.eliminar(id)
     }
 }
