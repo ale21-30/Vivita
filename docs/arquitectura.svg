@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" font-family="Segoe UI, Roboto, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3E2723"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="800" fill="#F5EFE0"/>
+
+  <text x="450" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1B4332">Arquitectura de Vivita — MVVM + Repository</text>
+
+  <!-- UI layer -->
+  <rect x="230" y="60" width="440" height="80" rx="14" fill="#1B4332"/>
+  <text x="450" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#F5EFE0">UI — Jetpack Compose</text>
+  <text x="450" y="112" text-anchor="middle" font-size="13" fill="#F5EFE0">Home · Alícuotas · Basura · Invitados · Portería · Ajustes</text>
+  <text x="450" y="130" text-anchor="middle" font-size="12" fill="#CFE0D6">observa StateFlow · invoca funciones del ViewModel</text>
+
+  <line x1="450" y1="140" x2="450" y2="180" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="450" y1="180" x2="450" y2="140" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- ViewModel layer -->
+  <rect x="230" y="182" width="440" height="70" rx="14" fill="#1B4332"/>
+  <text x="450" y="212" text-anchor="middle" font-size="17" font-weight="700" fill="#F5EFE0">ViewModel</text>
+  <text x="450" y="234" text-anchor="middle" font-size="13" fill="#F5EFE0">expone StateFlow · corrutinas (viewModelScope)</text>
+
+  <!-- AppContainer side note -->
+  <rect x="700" y="182" width="170" height="70" rx="10" fill="none" stroke="#1B4332" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="785" y="208" text-anchor="middle" font-size="12" font-weight="700" fill="#1B4332">AppContainer</text>
+  <text x="785" y="225" text-anchor="middle" font-size="10.5" fill="#1B4332">Inyección de</text>
+  <text x="785" y="238" text-anchor="middle" font-size="10.5" fill="#1B4332">dependencias manual</text>
+  <line x1="700" y1="217" x2="672" y2="217" stroke="#1B4332" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <line x1="450" y1="252" x2="450" y2="292" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Repository layer -->
+  <rect x="230" y="294" width="440" height="80" rx="14" fill="#3E2723"/>
+  <text x="450" y="326" text-anchor="middle" font-size="17" font-weight="700" fill="#F5EFE0">Repository</text>
+  <text x="450" y="348" text-anchor="middle" font-size="13" fill="#F5EFE0">AlicuotasRepository · InvitadosRepository</text>
+  <text x="450" y="365" text-anchor="middle" font-size="12" fill="#E7D9CC">único punto de acceso a los datos</text>
+
+  <!-- branching lines to 3 data sources -->
+  <line x1="450" y1="374" x2="450" y2="410" stroke="#3E2723" stroke-width="3"/>
+  <line x1="150" y1="410" x2="750" y2="410" stroke="#3E2723" stroke-width="3"/>
+  <line x1="150" y1="410" x2="150" y2="440" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="450" y1="410" x2="450" y2="440" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="750" y1="410" x2="750" y2="440" stroke="#3E2723" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Room -->
+  <rect x="40" y="442" width="220" height="120" rx="14" fill="#EDE3CC" stroke="#1B4332" stroke-width="2.5"/>
+  <text x="150" y="472" text-anchor="middle" font-size="15" font-weight="700" fill="#1B4332">Room (local)</text>
+  <text x="150" y="496" text-anchor="middle" font-size="12" fill="#3E2723">AlicuotaEntity</text>
+  <text x="150" y="514" text-anchor="middle" font-size="12" fill="#3E2723">InvitadoEntity</text>
+  <text x="150" y="536" text-anchor="middle" font-size="11" fill="#5A4A42">alícuotas, invitados,</text>
+  <text x="150" y="552" text-anchor="middle" font-size="11" fill="#5A4A42">comprobantes de pago</text>
+
+  <!-- Retrofit -->
+  <rect x="340" y="442" width="220" height="120" rx="14" fill="#EDE3CC" stroke="#1B4332" stroke-width="2.5"/>
+  <text x="450" y="472" text-anchor="middle" font-size="15" font-weight="700" fill="#1B4332">Retrofit (remoto)</text>
+  <text x="450" y="496" text-anchor="middle" font-size="12" fill="#3E2723">ExchangeRateApi</text>
+  <text x="450" y="518" text-anchor="middle" font-size="11" fill="#5A4A42">open.er-api.com</text>
+  <text x="450" y="538" text-anchor="middle" font-size="11" fill="#5A4A42">estados: cargando /</text>
+  <text x="450" y="554" text-anchor="middle" font-size="11" fill="#5A4A42">éxito / error</text>
+
+  <!-- DataStore -->
+  <rect x="640" y="442" width="220" height="120" rx="14" fill="#EDE3CC" stroke="#1B4332" stroke-width="2.5"/>
+  <text x="750" y="472" text-anchor="middle" font-size="15" font-weight="700" fill="#1B4332">DataStore</text>
+  <text x="750" y="496" text-anchor="middle" font-size="12" fill="#3E2723">UserPreferencesRepository</text>
+  <text x="750" y="518" text-anchor="middle" font-size="11" fill="#5A4A42">modo oscuro, notificaciones,</text>
+  <text x="750" y="536" text-anchor="middle" font-size="11" fill="#5A4A42">día de basura, casa/</text>
+  <text x="750" y="552" text-anchor="middle" font-size="11" fill="#5A4A42">habitante</text>
+
+  <!-- Hardware note -->
+  <rect x="230" y="600" width="440" height="70" rx="14" fill="none" stroke="#1B4332" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="450" y="626" text-anchor="middle" font-size="13" font-weight="700" fill="#1B4332">Hardware</text>
+  <text x="450" y="646" text-anchor="middle" font-size="11.5" fill="#1B4332">Cámara (foto de invitado) · ZXing (generar / escanear QR)</text>
+  <line x1="150" y1="562" x2="150" y2="635" stroke="#1B4332" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="150" y1="635" x2="228" y2="635" stroke="#1B4332" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <text x="450" y="700" text-anchor="middle" font-size="11" fill="#5A4A42">El ViewModel nunca llama directamente a Retrofit o a los DAOs: siempre pasa por un Repository.</text>
+  <text x="450" y="720" text-anchor="middle" font-size="11" fill="#5A4A42">Vivita · Proyecto final de Aplicaciones Móviles (ISTER)</text>
+</svg>

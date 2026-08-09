@@ -41,7 +41,7 @@ data/
 
 El ViewModel nunca llama directamente a Retrofit o a los DAOs: siempre pasa por un Repository. La inyección de dependencias es manual, a través de `AppContainer` (creado en la clase `Application`) y expuesto a los Composables con `appContainer()`.
 
-Ver diagrama completo en [`docs/arquitectura.png`](docs/arquitectura.png).
+![Diagrama de arquitectura](docs/arquitectura.svg)
 
 ## Stack técnico
 
